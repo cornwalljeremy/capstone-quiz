@@ -1,16 +1,25 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext } from "react";
+import { GameStateContext } from "../Helpers/Contexts";
+import { Questions } from "../Helpers/QuestionBank";
+import "../App.css";
 
-const EndScreen = memo(function EndScreen(props) {
-    return (
-        <div>
-            <h1>End Screen</h1>
-        </div>
-    )
-})
+function EndScreen() {
+  const { score, setScore, setGameState } = useContext(GameStateContext);
 
-EndScreen.propTypes = {
-
+  const restartQuiz = () => {
+    setScore(0);
+    setGameState("menu");
+  };
+  return (
+    <div className='Endscreen'>
+      {""}
+      <h1>Quiz Finished</h1>
+      <h3>
+        {score} / {Questions.length}
+      </h3>
+    <button onClick={restartQuiz}> Restart Quiz </button>
+    </div>
+  );
 }
 
-export default EndScreen
+export default EndScreen;
