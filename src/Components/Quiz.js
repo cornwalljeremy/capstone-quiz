@@ -19,7 +19,7 @@ function Quiz() {
     if (Questions[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
   } 
-  setGameState("endscreen")
+  setGameState("endScreen")
 
   }
   return (
